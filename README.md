@@ -1,5 +1,7 @@
 # start-fastapi
 
+学习下，原作者：https://github.com/utmhikari/start-fastapi
+
 Version 2021, based on [FastAPI](https://github.com/tiangolo/fastapi), an easy-to-use web app developed upon [Starlette Framework](https://www.starlette.io/)
 
 - [Version 2020](https://github.com/utmhikari/start-fastapi/tree/v2020_final)
