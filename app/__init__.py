@@ -2,9 +2,8 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 from starlette.routing import Route, WebSocketRoute
 
-from core import init_core_modules
+from core import init_core_modules, settings
 from core.lib import util, logger
-from core.lib.settings import settings
 
 LOGGER = logger.get('FASTAPI_APP')
 
@@ -17,10 +16,10 @@ The APP instance will be launched by uvicorn instance in ${workspaceFolder}/main
 
 # init FastAPI instance with config integrated as environ vars
 FASTAPI_CFG = {
-    'debug': settings.ENV != 'prod',
-    'title': settings.TITLE,
-    'description': settings.DESCRIPTION,
-    'version': settings.VERSION,
+    'debug': settings.app_settings.ENV != 'prod',
+    'title': settings.app_settings.TITLE,
+    'description': settings.app_settings.DESCRIPTION,
+    'version': settings.app_settings.VERSION,
 }
 APP = FastAPI(**FASTAPI_CFG)
 

@@ -11,6 +11,7 @@ def main() -> None:
     print('launch celery with cmd opts: %s' % util.pfmt(opts))
     cfg = load_cfg(opts['env'])
     load_dotenv(dotenv_path=cfg['env_file'])
+    os.environ['FASTAPI_APP_CELERY_SERVER'] = 'true'
     os.system('celery -A core.celery.celery worker -l info')
 
 

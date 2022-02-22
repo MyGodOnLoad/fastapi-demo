@@ -1,11 +1,11 @@
 from kombu import Queue
 
-from core.lib.settings import settings
+from core import settings
 
-RABBITMQ_USER = settings.RABBITMQ_USER
-RABBITMQ_PASSWORD = settings.RABBITMQ_PASSWORD
-RABBITMQ_SERVER = settings.RABBITMQ_SERVER
-RABBITMQ_PORT = settings.RABBITMQ_PORT
+RABBITMQ_USER = settings.app_settings.RABBITMQ_USER
+RABBITMQ_PASSWORD = settings.app_settings.RABBITMQ_PASSWORD
+RABBITMQ_SERVER = settings.app_settings.RABBITMQ_SERVER
+RABBITMQ_PORT = settings.app_settings.RABBITMQ_PORT
 
 broker_url = f'amqp://{RABBITMQ_USER}:{RABBITMQ_PASSWORD}@{RABBITMQ_SERVER}:{RABBITMQ_PORT}'
 result_backend = f'rpc://{RABBITMQ_USER}:{RABBITMQ_PASSWORD}@{RABBITMQ_SERVER}:{RABBITMQ_PORT}'
